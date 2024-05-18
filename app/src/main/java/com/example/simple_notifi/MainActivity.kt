@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
                                     response: Response<Notification>
                                 ) {
                                     if (response.isSuccessful){
-                                        Log.d("GGG" , "Sent Notification")
+
                                     }
                                 }
                                 override fun onFailure(call: Call<Notification>, t: Throwable) {

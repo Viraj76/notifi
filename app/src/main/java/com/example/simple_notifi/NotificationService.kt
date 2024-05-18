@@ -26,6 +26,10 @@ class NotificationService : FirebaseMessagingService() {
             enableLights(true)
         }
 
+        val broadcastIntent = Intent(this, NotificationReceiver::class.java).apply {
+            action = "ACTION_INCOMING_CALL"
+        }
+        val broadcastPendingIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         manager.createNotificationChannel(channel)
@@ -36,7 +40,7 @@ class NotificationService : FirebaseMessagingService() {
             .setSmallIcon(R.drawable.ic_launcher_background)
 //            .setContentIntent(pendingIntent)
             .setAutoCancel(true)
-            .setFullScreenIntent(fullScreenPendingIntent, true)
+//            .setFullScreenIntent(broadcastPendingIntent, true)
             .build()
 
         manager.notify(Random.nextInt() , notification)

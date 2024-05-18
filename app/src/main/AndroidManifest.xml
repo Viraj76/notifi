@@ -39,13 +39,16 @@
             </intent-filter>
         </service>
 
-        <receiver
-            android:name=".NotificationReceiver"
-            android:exported="false">
+<!--        <receiver-->
+<!--            android:name=".NotificationReceiver">-->
+<!--        </receiver>-->
+        <receiver android:name=".NotificationReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.example.simple_notifi.ACTION_NOTIFICATION_RECEIVED" />
+                <action android:name="ACTION_INCOMING_CALL" />
             </intent-filter>
         </receiver>
+
 
     </application>
 

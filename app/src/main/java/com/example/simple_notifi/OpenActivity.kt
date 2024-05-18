@@ -16,7 +16,6 @@ class OpenActivity : AppCompatActivity() {
 
             }
         }
-
     }
 
     private fun showWhenLockedAndTurnScreenOn() {
